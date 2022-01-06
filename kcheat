@@ -1,0 +1,25 @@
+#!/bin/zsh
+
+echo "🔗 See  https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl for full list"
+
+cat <<EOF 
+Alias   Command
+====	=======
+kca	kubectl --all-namespaces
+keti	kubectl exec -ti
+kcuc	kubectl config use-context
+kcsc	kubectl config set-context
+kccc	kubectl config current-context
+kcgc	kubectl config get-contexts
+kdel	kubectl delete
+kgp	kubectl get pods
+kgpw	kgp --watch
+kgsec	kubectl get secret
+kdd	kubectl describe deployment
+ked	kubectl edit deployment
+ksd	kubectl scale deployment
+kpf	kubectl port-forward
+kga	kubectl get all
+kl	kubectl logs
+klf	kubectl logs -f
+EOF

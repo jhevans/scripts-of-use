@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "⚠️ This is a stub implementation, you'll need to adapt it for your use case."
+echo "👋 Exiting"
+exit
+
+
+context=?
+namespace=?
+port=5432
+
+kubectl config use-context $context
+
+kubectl -n $namespace run port-forward-pod --image=ministryofjustice/port-forward --port=5432 --env="REMOTE_HOST=$remote_host" --env="LOCAL_PORT=$port" --env="REMOTE_PORT=$port"
+
+kubectl port-forward port-forward-pod $port:$port

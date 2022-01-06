@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -e
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+# Parameters
+delay=5
+host=
+source "$SCRIPT_DIR/get_params" <<< "$@"
+
+
+do_exit=false
+if [ "$host" = "" ]; then
+  echo "❌  No --host specified."
+  do_exit=true
+fi
+
+if [ $do_exit = "true" ]; then
+  echo "👋 Exiting"
+  exit 1
+fi
+
+while sleep $delay;
+do
+  curl -I "https://$host";
+done

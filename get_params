@@ -1,0 +1,29 @@
+#!/bin/bash
+
+
+# Read any named params provided to a script
+# To use in another script use the following snippet:
+# source get_params <<< $@
+
+vars=
+while [ $# -gt 0 ]; do
+
+   if [[ $1 == *"--"* ]]; then
+        param="${1/--/}"
+        value="$2"
+        declare $param=$value
+
+      vars="$vars$param=$value,"
+   fi
+
+  shift
+done
+
+if [ "$debug" = "true" ]; then
+  echo "ℹ️  Running in debug mode"
+  echo "🐛 The following parameters have been passed:"
+  for var in ${vars//,/ }
+  do
+    echo "► $var"
+  done
+fi

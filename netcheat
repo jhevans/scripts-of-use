@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat <<EOF
+lsof -nP -iTCP:8080 | grep LISTEN 		| Find out what's running on port 8080
+EOF

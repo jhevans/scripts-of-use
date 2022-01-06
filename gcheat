@@ -1,0 +1,24 @@
+#!/bin/zsh
+
+# Note: This assumes you're using zsh with the ohmyzsh git plugin linked below
+
+echo "🔗 See https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/git/ for full list"
+
+cat <<EOF 
+Alias   Command
+====	=======
+g	git
+ga	git add
+gcam	git commit -a -m
+gcb	git checkout -b
+gcm	git checkout master
+gcn!	git commit -v --no-edit --amend
+gco	git checkout
+gd	git diff
+gf	git fetch
+gpsup	git push --set-upstream origin \$(git_current_branch)
+gl	git pull
+gm	git merge
+gp	git push
+gst	git status
+EOF

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Set the local branch to track a remote upstream branch with the same name
+
+branch="$(git rev-parse --abbrev-ref HEAD)"
+echo "git push --set-upstream origin $branch $@"
+git push --set-upstream origin $branch $@
