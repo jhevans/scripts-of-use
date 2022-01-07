@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+set -e
+
+# Delete the current branch and checkout main
+
+current_branch=$(git branch --show-current)
+git checkout main
+git branch -D "$current_branch"
