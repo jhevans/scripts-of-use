@@ -21,4 +21,5 @@ gl	git pull
 gm	git merge
 gp	git push
 gst	git status
+grmb (Checks out main and deletes the current branch)
 EOF

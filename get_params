@@ -27,3 +27,34 @@ if [ "$debug" = "true" ]; then
     echo "► $var"
   done
 fi
+
+if [ "$log_level" = "trace" ]; then
+  echo "🔊 Log level is trace, setting xtrace"
+  set -x
+fi
+
+# TODO: Not sure this should live here
+# TODO: Make it a function
+if [ "$data_table" != "" ]; then
+# This script will extract entries from a dBeaver/Postgres formatted table dump
+
+#  Example table structure:
+#  pnc          |forename   |surname      |
+#  -------------+-----------+-------------+
+#  2000/1235678G|"Nigel"    |"Legin"      |
+
+# Example object_structure (note this relies on ordering *not* the headers in the table - these are ignored:
+# TODO: It should really just unpack using the headers rather than this daftness
+# object_structure='{"pnc": .[0],"forename": .[1],"surname": .[2]}'
+
+  if [ "$debug" = "true" ]; then
+    echo "🗃 Found this data:"
+    cat $data_table
+  fi
+
+  # TODO: come up with an appropriate namespace for this kind of stuff
+  data=$(tail -n +2 $data_table | sed s/\"//g | sed "/^$/d" | sed "s/ //g" | jq --slurp --raw-input  \
+      "split(\"\n\") | .[1:] | map(split(\"|\")) |
+          map($object_structure)" | \
+  jq --compact-output '.[]')
+fi

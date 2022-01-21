@@ -4,4 +4,6 @@ cat <<EOF
 Alias   Command
 =====   =======
 dkill   docker kill \$(docker ps -q)
+dcup    docker compose up postgres
+dcul    docker compose up localstack
 EOF

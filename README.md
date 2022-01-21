@@ -32,10 +32,12 @@ echo "👋 Exiting"
 | ⚠️  | Warning  |
 
 ## TODO
-- [ ] Create `template` script 
+- [/] Create `template` script 
 - [ ] Update `get_params` to convert `kebab-cased` vars to `snake_case`
 - [ ] Write a chmodding script for humans
 - [ ] Write script for validating required parameters
 - [ ] Extend `get_params` to allow positional arguments
 - [ ] Add some [`man` pages](https://www.cyberciti.biz/faq/linux-unix-creating-a-manpage/)
 - [ ] Unit test some scripts
+- [ ] Come up with better way of managing aliases
+- [ ] Organise partials better (e.g. moj_offender_search)
