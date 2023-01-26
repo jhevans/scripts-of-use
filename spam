@@ -22,5 +22,5 @@ fi
 
 while sleep $delay;
 do
-  curl -I "https://$host";
+  curl -I -X POST "https://$host";
 done
