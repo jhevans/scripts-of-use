@@ -1,0 +1,3 @@
+#!/bin/bash
+
+gh pr create --fill --body "https://dsdmoj.atlassian.net/browse/$(git branch --show-current | egrep -o '^[a-zA-Z]+-[0-9]+')"
